@@ -1,0 +1,2 @@
+module Tmp::GetsHelper
+end

@@ -1,0 +1,2 @@
+class BlackList	
+end

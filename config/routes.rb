@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
-  root "quizzes#index"
-  resources :quizzes
+  root "comments#index"
+
+  resources :quizzes,path_names: {new: "make"}
+
+  resources :comments
+
+  scope '/admin' do
+    resources :temps
+  end
+
+
   resources :user do
-    collection do 
+    collection do
       post "authenticate"
     end
+  end
+
+  resources :people do
+    resources :likes,shallow: true
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

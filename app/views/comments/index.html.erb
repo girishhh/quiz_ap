@@ -1,0 +1,8 @@
+<%#=link_to "test",comment_path(Comment.first),method: :put%>
+<%#=edit_comment_url(Comment.first)%>
+<%#= auto_discovery_link_tag(:rss, {action: "new"},{title: "RSS Feed"}) %>
+<%cache do %>
+	<%=render(partial: 'layouts/test',collection: []) || "no"%>
+<%end%>
+
+

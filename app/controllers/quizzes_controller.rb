@@ -1,11 +1,15 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy]  
 
   # GET /quizzes
   # GET /quizzes.json
   def index
-    @quizzes = Quiz.all
+    # @quizzes = Quiz.all    
+    if :var1 == :var1
+      puts :var1
+    end  
+    render json: {data: [{id: 1,name: 'girish'},{id: 2,name: 'raghu'},{id: 3,name: 'guru'},{id: 4,name: 'rev'}]}
   end
 
   # GET /quizzes/1
