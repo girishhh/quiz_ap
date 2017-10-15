@@ -126,5 +126,3 @@ git mv from_loc to_loc  --> if a file is untracked this command is invalid
 	                     ---> if a file is already is in tracking list and u moved(git mv from_loc to_loc ) once(or renamed it once) and than u modified, it will be shown in modified(non-staged) , as well as renamed(staged) ,at this moment if u add that modified file it will show old_file deleted new file addded(stage message)
 
 create mode number(git commit) -- to be read
-
-girish kulkarni 9090909 pkpkpokpokpkpokpk n knjnknnkn
