@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
 	def new
 		p "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+		p "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 		redirect_to :back,fallback_location: root_path
 	end
 
