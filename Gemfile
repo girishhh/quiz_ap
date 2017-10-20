@@ -32,7 +32,7 @@ group :development do
     gem 'sunspot_solr'
  end
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrbhbhjbjypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

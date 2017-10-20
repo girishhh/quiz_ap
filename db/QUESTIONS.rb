@@ -78,3 +78,59 @@ why git
 --local opeartions
 --each file is referred by checksum,so if checksum is lost even git cant able to acces file so high intigrity
 -- snapshot of each file is being stored unlike other vcs where list of file changes are being stored
+
+git config --global user.name
+git config user.name(to override configurations in particular project)
+git rm  --cached  file_name
+git diff file_name or git diff --staged
+git mv file_name1 file_name2(renames file)
+git status -s
+git log -p -2
+git log --since=2.weeks
+git log -S string_name
+git commit --amend
+git remote add
+git remote show origin
+git remote remove
+git remote rename origin_old origin_name
+
+
+tag:(detached HEAD state) -->  pointing to particular commit
+
+git tag (lists tag name in ascending alphabatical order)
+git tag -l "v1.1.2.*"
+
+1.lightweight tags 
+2.annotated tags
+
+git tag -a tag_name -m "message"
+git show tag_name
+git tag -a tag_name commit_checksum or git tag tag_name commit_checksum
+git push origin tag_name
+git push origin --tags
+git checkout tag_name
+git checkout -b new_branch
+git checkout -b new_branch tag_name
+git push --delete origin tag2
+git tag --delete tag_name(delete tag locally)
+
+branching: Diverging from main line of development
+
+commit --> stores commit object which has pointer to the snapshot of content staged ,commit message ,author ,date,pointers to the immediate previous commit
+git branch 
+git checkout -b branch_name
+git log --decorate(where head is pointing)
+git branch -v(to see last commit on each branch)
+git branch --merged or git branch --no-merged
+git branch -d branch_name
+
+Remote branches: local copy of remote branch is set up
+there should be local copy of remote branch in-order to modify in that branch i.e u cannot modify  in the remote branch directly that is in origin/master
+
+git checkout -b new_branch origin/new_branch(creates local new_branch which is trackable)
+git checkout --track origin/new_branch is same as git checkout -b new_branch origin/new_branch
+git branch -u origin/branch
+git branch -v(last commit in each branch)
+git branch -vv(remote branches which are set up)
+git fetch --all(to fetch entire data from all remotes)
+git push origin --delete master
