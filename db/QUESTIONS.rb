@@ -134,3 +134,15 @@ git branch -v(last commit in each branch)
 git branch -vv(remote branches which are set up)
 git fetch --all(to fetch entire data from all remotes)
 git push origin --delete master
+
+stash:
+git stash 
+git stash apply
+git stash pop
+git stash drop
+git stash --keep-index
+git stash pop --index
+git stash list
+git stash --patch
+git stash branch branch_name(creates new branch from latest stash)
+git clean -d(will remove all untracked files or directories)
