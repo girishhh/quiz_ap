@@ -134,4 +134,3 @@ git branch -v(last commit in each branch)
 git branch -vv(remote branches which are set up)
 git fetch --all(to fetch entire data from all remotes)
 git push origin --delete master
-girish
