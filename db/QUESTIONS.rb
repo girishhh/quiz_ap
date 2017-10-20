@@ -146,3 +146,10 @@ git stash list
 git stash --patch
 git stash branch branch_name(creates new branch from latest stash)
 git clean -d(will remove all untracked files or directories)
+
+is-tree --> commit tree explanation
+git-instaweb  --> runs webserver with interface set up for local directory,we have to provide configuration in git congig files
+
+.git/hooks/ --> directory contains the scripts to be run when u specify the command in command line
+
+git repository service hosting --> githun or visula studio online
