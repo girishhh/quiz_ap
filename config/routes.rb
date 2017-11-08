@@ -1,5 +1,7 @@
-Rails.application.routes.draw do
-  root "comments#index"
+Rails.application.routes.draw do  
+  devise_for :authes, controllers: { omniauth_callbacks: 'authes/omniauth_callbacks' }
+
+  root "comments#index"  
 
   resources :quizzes,path_names: {new: "make"}
 

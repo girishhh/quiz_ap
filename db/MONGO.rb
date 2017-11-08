@@ -50,6 +50,20 @@ get max  value of field using db.employee.find().sort({likes: -1}).limit(1)
 
 In above example db.employee.find({"subord.likes.name": "like1"}) --> will matches to name of likes of subord
 
+example: db.people.aggregate([{'$match': {sal: 30}},{'$group': {_id: '$name',sum: {'$sum': '$sal'},count: {$sum: 1}}},{$sort: {count: 1}}])
+output:  { "_id" : "giri", "sum" : 30, "count" : 1 }
+		 { "_id" : "gowda2", "sum" : 30, "count" : 1 }
+		 { "_id" : "gowda", "sum" : 30, "count" : 1 }
+		 { "_id" : "giri2", "sum" : 60, "count" : 2 }
+db.people.find({sal: {$gte: 30}}).sort({name: -1})
+
+example: Person.or([{name: "giri"},{name: "girish"}]).and([{sal: {'$lt': 10}}]).to_a (DSL mongo)
+
+
+ActiveReccord queries:
+User.where().group(:name).pluck("name,max(sal,count(*))")
+Person.where("sys_id < 15").group(:sys_id).order("sum(sys_id) desc").pluck("sys_id,sum(sys_id), count(*)")
+Person.where("comments.name": {'$in': ["com2"]}).to_a
 ----------------------------------------------------------------------------------
 
 embeds_many --> embedded_in
@@ -64,7 +78,7 @@ ex: a = Person.first
 recursively_embeds_many
 -------------------------------------
 
-polymorphic --- > using embeds --> nothing is stored in belongs to class 
+polymorphic --- > using embeds --> nothing is stored in belongs to class
 ex: Person , Employee , Pictures
 Person has pictures field which stores picture --> { "_id" : ObjectId("59df090c7b46af172b000002"), "name" : "girish", "pictures" : [ { "_id" : ObjectId("59df091a7b46af172b000003"), "name" : "girish" } ] }
 
@@ -94,7 +108,7 @@ GIN ---> generalized inverted index,builds index slower,accesing values is faste
 
 indexing ---> a data structure used to speed up data retrieval at the cast of additional writes and storage space
 
-types b-tree , hash-tree , GiST , GIN
+types b-tree,hash-tree,GiST, GIN
 
 primary-indexes --> enabled by default on primary keys
 
@@ -122,3 +136,6 @@ than in b-tree we have
 Things to be read
 
  quering the jsonb column (->@ etc etc)
+
+
+ like joins

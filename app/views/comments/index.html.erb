@@ -1,3 +1,15 @@
+<%= link_to 'Logout',destroy_authe_session_path,method: :delete%>
+<%= link_to 'Edit registration', edit_authe_registration_path %>
+<%=text_field_tag :girish%>
+<%=javascript_include_tag 'tokenjs1/jquery.tokeninput'%>
+<%=stylesheet_link_tag 'tokencs1/token-input-facebook'%>
+<%=stylesheet_link_tag 'tokencs1/token-input-mac'%>
+<%=stylesheet_link_tag 'tokencs1/token-input'%>
+<%= link_to "Sign in with Google", authe_google_oauth2_omniauth_authorize_path %>
 
 
-
+<script>
+$(document).ready(function () {
+    $("#girish").tokenInput("/url/to/your/script/");
+});
+</script>

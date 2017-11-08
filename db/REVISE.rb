@@ -48,7 +48,7 @@ increment,decrement,toggle ---> will update column just in instance of object bu
 
 increment!,decrement!,toggle!---->will save the object in db ---> no validations but remaining(other than validational callbacks) callbacks will be executed
 
-update_column,update_all,update_columns,update_counters--->will save the object in db but no callbacks
+update_column(Person.update_column(:column_name,value)),update_all,update_columns,update_counters--->will save the object in db but no callbacks
 
 here no callbacks => no validations also
 
@@ -127,8 +127,64 @@ git mv from_loc to_loc  --> if a file is untracked this command is invalid
 
 create mode number(git commit) -- to be read
 
-girish mlklmklmlkmlmlkmlkm
+users = User.includes(:address)
+users.each do |user|
+  user.address.city #no additional query
+end
 
-test 123 test jsabjabsdjhbsd
-girish
-ghvhgv
+pg_dump -U postgres myfam_db > /home/girish/test.sql
+BasicObject --> Object (from ruby 1.9)
+memcache ---> port: 11211
+Rails.cache.write('1',1,:raw=>true)
+asset pipe line --> 3.1+
+
+gem structure(to be read)
+ruby array functions
+
+Creating manifests files for particular directory(to be read)
+
+
+Everything evaluates to object
+ex: class definitionn --> returns last evaluated expression
+    method definition --> always evaluates to nil(so generally class has methods so generally class evaluates to nil)
+    assigment --> evaluates to assigned value
+    if and (case and when) --> always returmns nil
+
+
+dynamic scaffolding : 
+class AdminController < ApplicationController
+  scaffold :product
+end
+
+way of generating automatic code(model + controller + views + helpers) during runtime ,and dont require database to be migrated
+
+static scaffolding: 
+way of generating automatic code(model + controller + views + helpers) manually through command line and needs database to be migrated
+
+flash[:notice] vs flash.now[:notice]
+
+flash[:notice] --> a special hash which is available on only the next new request after this request flash is being errased
+flash.now[:notice] --> a special hash which persist only within this request but not available in next request
+
+code
+	1.rb
+	2.rb
+
+	cd code --> within 1.rb --> require_relative '2.rb'
+	cd code --> within 1.rb --> require './2.rb'
+
+==   --> checks only the value irrespective of type
+
+eql? --> checks value and type 
+
+equal?  --> checks if both are same objects
+
+"giri".equal? "giri" --> returns false(both are diffrent objects)
+
+"giri".eql? "giri" --> true(value and type are same)
+
+delayed_job --> rails 3.0+
+
+
+
+

@@ -73,10 +73,10 @@ You can pass it around like an object (to be called later)
 It remembers the values of all the variables that were in scope when the function was created. It is then able to access those variables when it is called even though they may no longer be in scope.
 
 
-why git
+why git(distributed version controlling system)
 
 --local opeartions
---each file is referred by checksum,so if checksum is lost even git cant able to acces file so high intigrity
+--each file is referred by checksum(SHA-1),so if checksum is lost even git cant able to acces file so high intigrity
 -- snapshot of each file is being stored unlike other vcs where list of file changes are being stored
 
 git config --global user.name

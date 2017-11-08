@@ -27,10 +27,18 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'pg'
 gem 'dalli'
 gem 'sunspot_rails'
-
+gem 'activerecord-session_store'
+gem 'activeresource'
+gem 'protected_attributes'
 group :development do
     gem 'sunspot_solr'
- end
+end
+
+gem 'nokogiri'
+
+gem 'omniauth-google-oauth2'
+gem 'aws-sdk'
+gem 'jwt'
 # Use ActiveModel has_secure_password
 # gem 'bcrbhbhjbjypt', '~> 3.1.7'
 

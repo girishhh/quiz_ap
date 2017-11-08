@@ -1,4 +1,3 @@
-class AccountHistory < ActiveRecord::Base
-	hbjhbhjbbjhbjhb
+class AccountHistory < ActiveRecord::Base	
 	belongs_to :account
 end
