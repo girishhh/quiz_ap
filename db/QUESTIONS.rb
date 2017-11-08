@@ -56,7 +56,7 @@ make utility --> compile and link program modules
 
 rake --> ruby make or  a ruby utility that uses Rakefile and .rake files to build tasks
 
-
+1
 dynamic scaffolding has been depricated since rails 2.0
 for example
 	within controller at the top we mention
