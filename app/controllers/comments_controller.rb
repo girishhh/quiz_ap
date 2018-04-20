@@ -1,14 +1,10 @@
 class CommentsController < ApplicationController
 
-	def index		
-	  p "88888888888"
-	  p params
+	def index					
+		p cookies
 	end
 
-	def new
-		p "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-		p "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-		redirect_to :back,fallback_location: root_path
+	def new		
 	end
 
 	def show

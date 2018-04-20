@@ -4,3 +4,14 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+task :my_task,[:first_arg, :second_arg]  do |t, args|
+  puts t
+  puts args
+end
+
+file 'text.txt' do 
+	cp 'to_copy.txt','text.txt'
+end
+#similar to taks but if you want to run any particular file tasks u should use this syntax
+rake text.txt

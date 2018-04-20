@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012084500) do
+ActiveRecord::Schema.define(version: 20171107140638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,36 @@ ActiveRecord::Schema.define(version: 20171012084500) do
     t.integer "patient_id", null: false
   end
 
+  create_table "authes", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "username"
+  end
+
+  add_index "authes", ["email"], name: "index_authes_on_email", unique: true, using: :btree
+  add_index "authes", ["reset_password_token"], name: "index_authes_on_reset_password_token", unique: true, using: :btree
+
   create_table "batteries", force: :cascade do |t|
     t.string "name"
     t.string "mobile_id"
   end
 
   add_index "batteries", ["mobile_id"], name: "index_batteries_on_mobile_id", using: :btree
+
+  create_table "batteries_mobiles", id: false, force: :cascade do |t|
+    t.integer "mobile_id",  null: false
+    t.integer "battery_id", null: false
+  end
 
   create_table "comments", primary_key: "name", force: :cascade do |t|
     t.integer  "num",    limit: 8
@@ -133,11 +157,14 @@ ActiveRecord::Schema.define(version: 20171012084500) do
     t.string  "name"
     t.integer "sys_id"
     t.boolean "status"
-    t.string  "wires",   array: true
+    t.string  "wires",     array: true
     t.hstore  "address"
     t.json    "country"
     t.jsonb   "state"
     t.inet    "ip"
+    t.text    "addresses", array: true
+    t.json    "test1"
+    t.jsonb   "test2"
   end
 
   add_index "people", ["state"], name: "test", using: :gin
@@ -194,6 +221,21 @@ ActiveRecord::Schema.define(version: 20171012084500) do
     t.integer  "document_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
+  create_table "speakers", primary_key: "guid", force: :cascade do |t|
+    t.string  "name"
+    t.integer "num"
   end
 
   create_table "subscriptions", force: :cascade do |t|

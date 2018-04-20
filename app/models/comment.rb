@@ -1,6 +1,7 @@
-class Comment < ActiveRecord::Base
-	def matches?(request)
-		p "GET"
-		p  request.remote_ip		
+class Comment < ActiveResource::Base
+	self.site = "http://localhost:3000"
+
+	def matches?(request)		
 	end
+
 end
